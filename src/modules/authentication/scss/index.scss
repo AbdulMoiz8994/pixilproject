@@ -1,0 +1,17 @@
+@import "../../../theme/colors/index.scss";
+@import "../../../theme/fonts/index.scss";
+.auth {
+  .card {
+    background-color: $white;
+    width: 500px;
+    font-family: $fontFamily;
+    h1 {
+      font-size: $fontSizeForSubHeading;
+      text-align: center;
+      font-weight: $fontWeightForSubHeading;
+    }
+    @media (max-width: 538px) {
+      width: 100%;
+    }
+  }
+}
