@@ -1,0 +1,42 @@
+@import "../../../../theme/colors/index.scss";
+@import "../../../../theme/fonts/index.scss";
+
+.hardware {
+  h1 {
+    font-size: $fontSizeForSubHeading;
+    font-weight: $fontWeightForSubHeading;
+  }
+  .steppers {
+    margin: 12px 0px;
+    background-color: $mainBgColor;
+    border-radius: 8px;
+    padding: 16px 0px;
+    .contents div {
+      padding: 8px 16px;
+      :first-child {
+        color: $textColor;
+      }
+    }
+  }
+  .nested_card {
+    margin: 12px 0px;
+    background-color: $mainBgColor;
+    border-radius: 8px;
+    padding: 16px 0px;
+    h1 {
+      font-weight: $fontWeightForText;
+    }
+    p {
+      color: $textColor;
+      padding: 2px 12px;
+    }
+  }
+}
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+  color: $boxColor !important;
+}
+@media (max-width: 375px) {
+  .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+    font-size: 10px;
+  }
+}

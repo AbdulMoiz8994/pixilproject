@@ -1,0 +1,74 @@
+@import "../../../theme/colors/index.scss";
+@import "../../../theme/fonts/index.scss";
+
+.dashboard {
+  font-family: $fontFamily;
+
+  .ordernumber {
+    span {
+      font-size: $fontSizeForSubHeading;
+      font-weight: $fontWeightForText;
+      margin-top: 6px;
+      margin-right: 8px;
+    }
+    h1 {
+      font-size: $fontSizeForHeading;
+      font-weight: $fontWeightForSubHeading;
+    }
+  }
+
+  .Main_card {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 14px;
+    margin-top: 8px;
+    .card-one {
+      border-radius: 8px;
+      h1 {
+        font-size: $fontSizeForSubHeading;
+        font-weight: $fontWeightForSubHeading;
+        padding: 10px 0px;
+      }
+      p {
+        color: $textColor;
+        font-size: $fontSizeForText;
+      }
+      span {
+        font-weight: $fontWeightForSubHeading;
+        padding-right: 4px;
+      }
+    }
+
+    .card_two,
+    .card_three {
+      height: 730px;
+      overflow-y: auto;
+    }
+  }
+
+  @media (max-width: 972px) {
+    // grid-template-columns: repeat(auto-fit, minmax(auto, 1fr)) !important;
+    .card_three {
+      width: 80vw;
+    }
+  }
+}
+.list_data {
+  h2 {
+    font-size: $fontSizeForSubHeading;
+    font-weight: $fontWeightForSubHeading;
+    padding: 4px 0px;
+  }
+  p {
+    padding: 4px 0px;
+  }
+
+}
+.payment{
+  button{
+    margin: 6px 0px;
+  }
+}

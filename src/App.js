@@ -1,10 +1,11 @@
 import "./App.scss";
-import { Authentication } from "./modules";
+import { Authentication, Dashboard } from "./modules";
 
 function App() {
   return (
     <div className="main-section">
-      <Authentication />
+      {/* <Authentication /> */}
+      <Dashboard />
     </div>
   );
 }
