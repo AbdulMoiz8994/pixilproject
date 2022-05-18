@@ -17,7 +17,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 500,
   bgcolor: "background.paper",
   border: "2px solid rgb(245,247,248)",
   boxShadow: 24,
@@ -184,7 +184,7 @@ export const Dashboard = () => {
                     >
                       Change delivery method
                     </Typography>
-                    <div className="absolute -top-5 -right-8 ">
+                    <div className="absolute -top-9 -right-8 ">
                       <Button
                         onClick={handleClose}
                         className="font-extrabold text-5xl"
