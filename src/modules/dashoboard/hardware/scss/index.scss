@@ -14,7 +14,7 @@
     border-radius: 8px;
     padding: 16px 0px;
     .contents div {
-      padding: 8px 16px;
+      padding: 4px 16px;
       :first-child {
         color: $textColor;
       }
@@ -26,7 +26,7 @@
   padding-right: 0px !important;
 }
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
-  color: $boxColor;
+  color: $boxColor !important;
 }
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-error{
   color: #d32f2f !important;

@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState } from "react";
 import { Btn, Header } from "../../component/index";
 import { Hardware } from "./hardware";
 import { Print } from "./print";
@@ -10,7 +10,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-// import Typography from "@mui/material/Typography";
+import CloseIcon from "@mui/icons-material/Close";
 
 const style = {
   position: "absolute",
@@ -81,7 +81,7 @@ export const Dashboard = () => {
                 <span>Country</span> Germany
               </p>
             </div>
-            <div className="pl-6">
+            <div className="pl-6 pt-5">
               <h1>Invoice address</h1>
               <p>
                 <span>Street</span> Augsburget StraBe 39
@@ -106,9 +106,9 @@ export const Dashboard = () => {
 
             {/* versandart */}
 
-            <div className="pl-6">
+            <div className="pl-6 pt-5">
               <h1>Versandat</h1>
-              <h3 className="text-lg pl-1">Hardware</h3>
+              <h3 className="text-lg pl-1 pt-3">Hardware</h3>
               <div className="flex justify-start items-center -ml-2">
                 <Checkbox
                   checked={checked}
@@ -129,7 +129,7 @@ export const Dashboard = () => {
 
             {/* print */}
 
-            <div className="pl-6">
+            <div className="pl-6 pt-3">
               <h3 className="text-lg pl-1">Print</h3>
               <div className="flex justify-start items-center -ml-2">
                 <Checkbox
@@ -189,7 +189,7 @@ export const Dashboard = () => {
                         onClick={handleClose}
                         className="font-extrabold text-5xl"
                       >
-                        X
+                        <CloseIcon sx={{ fontSize: 40, color: "black" }} />
                       </Button>
                     </div>
                   </div>

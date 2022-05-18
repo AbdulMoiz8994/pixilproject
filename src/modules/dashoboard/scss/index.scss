@@ -44,13 +44,12 @@
 
     .card_two,
     .card_three {
-      height: 730px;
+      height: 110vh;
       overflow-y: auto;
     }
   }
 
   @media (max-width: 972px) {
-    // grid-template-columns: repeat(auto-fit, minmax(auto, 1fr)) !important;
     .card_three {
       width: 80vw;
     }
@@ -65,10 +64,14 @@
   p {
     padding: 4px 0px;
   }
-
 }
-.payment{
-  button{
+.payment {
+  button {
     margin: 6px 0px;
+  }
+}
+@media (max-width:642px) {
+  .card-one{
+    order: 3 !important;
   }
 }

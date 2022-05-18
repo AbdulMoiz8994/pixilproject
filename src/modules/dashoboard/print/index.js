@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./scss/index.scss";
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
@@ -104,41 +104,6 @@ const initialData = [
   },
   {
     id: 3,
-    title: "POP LIGHTBOX",
-    quantity: "3x",
-    articleNumber: "156002",
-    dimesionNumber: "100cm x 200cm",
-  },
-  {
-    id: 4,
-    title: "POP LIGHTBOX",
-    quantity: "3x",
-    articleNumber: "156002",
-    dimesionNumber: "100cm x 200cm",
-  },
-  {
-    id: 5,
-    title: "POP LIGHTBOX",
-    quantity: "3x",
-    articleNumber: "156002",
-    dimesionNumber: "100cm x 200cm",
-  },
-  {
-    id: 6,
-    title: "POP LIGHTBOX",
-    quantity: "2x",
-    articleNumber: "156002",
-    dimesionNumber: "100cm x 200cm",
-  },
-  {
-    id: 7,
-    title: "POP LIGHTBOX",
-    quantity: "2x",
-    articleNumber: "156002",
-    dimesionNumber: "100cm x 200cm",
-  },
-  {
-    id: 8,
     title: "POP LIGHTBOX",
     quantity: "3x",
     articleNumber: "156002",

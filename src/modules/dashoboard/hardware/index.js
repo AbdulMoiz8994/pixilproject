@@ -143,7 +143,7 @@ export const Hardware = () => {
             })}
           </Stepper>
         </Stack>
-        <div className="contents py-4">
+        <div className="contents">
           <div>
             <p>Estimated delivery date</p>
             <p>22.04.2022</p>
@@ -161,7 +161,7 @@ export const Hardware = () => {
       {data.map((value) => {
         return (
           <div className="nested_card" key={value.id}>
-            <div className="flex justify-between p-3 flex-wrap">
+            <div className="flex justify-between p-2 flex-wrap">
               <h1>{value.title}</h1>
               <h2>{value.quantity}</h2>
             </div>
