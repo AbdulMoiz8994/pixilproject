@@ -4,7 +4,10 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Typography from "@mui/material/Typography";
-
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
@@ -106,6 +109,13 @@ const initialData = [
     articleNumber: "156002",
     dimesionNumber: "100cm x 200cm",
   },
+  {
+    id: 3,
+    title: "POP LIGHTBOX",
+    quantity: "3x",
+    articleNumber: "156002",
+    dimesionNumber: "100cm x 200cm",
+  },
 ];
 
 export const Hardware = () => {
@@ -114,7 +124,7 @@ export const Hardware = () => {
     return step === 1;
   };
   return (
-    <div className="hardware px-2 py-8">
+    <div className="hardware px-6 py-8">
       <h1>Hardware</h1>
       <div className="steppers">
         <Stack sx={{ width: "100%" }} spacing={4}>
@@ -128,7 +138,11 @@ export const Hardware = () => {
               const labelProps = {};
               if (isStepFailed(index)) {
                 labelProps.optional = (
-                  <Typography style={{display: 'flex', justifyContent: 'center'}} variant="caption" color="error">
+                  <Typography
+                    style={{ display: "flex", justifyContent: "center" }}
+                    variant="caption"
+                    color="error"
+                  >
                     Failed
                   </Typography>
                 );
@@ -161,15 +175,45 @@ export const Hardware = () => {
       {data.map((value) => {
         return (
           <div className="nested_card" key={value.id}>
-            <div className="flex justify-between p-2 flex-wrap">
+            <div className="flex justify-between p-2 px-5 flex-wrap">
               <h1>{value.title}</h1>
               <h2>{value.quantity}</h2>
             </div>
-            <p>Article number: {value.articleNumber}</p>
-            <p>Dimensions: {value.dimesionNumber}</p>
+            <div className="px-2">
+              <p>Article number: {value.articleNumber}</p>
+              <p>Dimensions: {value.dimesionNumber}</p>
+            </div>
           </div>
         );
       })}
+
+      <Accordion className="accordins">
+        <AccordionSummary
+          // expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className="text-center w-full">
+            <ExpandMoreIcon />
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          {data.map((value) => {
+            return (
+              <>
+                <div className="accor_drop" key={value.id}>
+                  <div className="flex justify-between p-3 flex-wrap">
+                    <h1>{value.title}</h1>
+                    <h2>{value.quantity}</h2>
+                  </div>
+                  <p>Article number: {value.articleNumber}</p>
+                  <p>Dimensions: {value.dimesionNumber}</p>
+                </div>
+              </>
+            );
+          })}
+        </AccordionDetails>
+      </Accordion>
     </div>
   );
 };

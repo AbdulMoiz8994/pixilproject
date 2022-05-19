@@ -40,7 +40,7 @@ export const Header = () => {
               "aria-labelledby": "basic-button",
             }}
           >
-            <MenuItem onClick={handleClose}>English</MenuItem>
+            <MenuItem onClick={handleClose}>Eng</MenuItem>
             <MenuItem onClick={handleClose}>DE</MenuItem>
           </Menu>
         </div>

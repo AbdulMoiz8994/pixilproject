@@ -35,6 +35,11 @@
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-error {
   color: #d32f2f !important;
 }
+@media (max-width: 1024px) {
+  .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+    font-size: 12px !important;
+  }
+}
 @media (max-width: 375px) {
   .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
     font-size: 10px;

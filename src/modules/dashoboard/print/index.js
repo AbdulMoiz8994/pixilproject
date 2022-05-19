@@ -10,6 +10,11 @@ import StepConnector, {
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import Check from "@mui/icons-material/Check";
 
@@ -102,19 +107,12 @@ const initialData = [
     articleNumber: "156002",
     dimesionNumber: "100cm x 200cm",
   },
-  {
-    id: 3,
-    title: "POP LIGHTBOX",
-    quantity: "3x",
-    articleNumber: "156002",
-    dimesionNumber: "100cm x 200cm",
-  },
 ];
 export const Print = () => {
   const [data, setData] = useState(initialData);
 
   return (
-    <div className="hardware px-2 py-8">
+    <div className="hardware px-6 py-8">
       <h1>Print</h1>
       <div className="steppers">
         <Stack sx={{ width: "100%" }} spacing={4}>
@@ -148,16 +146,46 @@ export const Print = () => {
       {/* Nested cards */}
       {data.map((value) => {
         return (
-          <div className="nested_card" key={value.id}>
-            <div className="flex justify-between p-3 flex-wrap">
-              <h1>{value.title}</h1>
-              <h2>{value.quantity}</h2>
+          <>
+            <div className="nested_card" key={value.id}>
+              <div className="flex justify-between p-3 flex-wrap">
+                <h1>{value.title}</h1>
+                <h2>{value.quantity}</h2>
+              </div>
+              <p>Article number: {value.articleNumber}</p>
+              <p>Dimensions: {value.dimesionNumber}</p>
             </div>
-            <p>Article number: {value.articleNumber}</p>
-            <p>Dimensions: {value.dimesionNumber}</p>
-          </div>
+          </>
         );
       })}
+
+      <Accordion className="accordins">
+        <AccordionSummary
+          // expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className="text-center w-full">
+            <ExpandMoreIcon />
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          {data.map((value) => {
+            return (
+              <>
+                <div className="accor_drop" key={value.id}>
+                  <div className="flex justify-between p-3 flex-wrap">
+                    <h1>{value.title}</h1>
+                    <h2>{value.quantity}</h2>
+                  </div>
+                  <p>Article number: {value.articleNumber}</p>
+                  <p>Dimensions: {value.dimesionNumber}</p>
+                </div>
+              </>
+            );
+          })}
+        </AccordionDetails>
+      </Accordion>
     </div>
   );
 };

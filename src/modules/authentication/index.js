@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Btn, Input, Header } from "../../component/index";
+import { useNavigate } from "react-router-dom";
 import "./scss/index.scss";
 
 export const Authentication = () => {
+  const navigate = useNavigate();
+  const [values, setValues] = useState();
+  const [emails, setEmails] = useState("");
+
   return (
     <div>
       <Header />
@@ -23,7 +28,8 @@ export const Authentication = () => {
                   width="100%"
                   padding="8px 12px"
                   borderRadius="18px"
-                  
+                  value={values}
+                  onChange={(e) => setValues(e.type.value)}
                 />
               </div>
             </div>
@@ -37,6 +43,8 @@ export const Authentication = () => {
                   width="100%"
                   padding="8px 12px"
                   borderRadius="18px"
+                  value={emails}
+                  onChange={(e) => setEmails(e.type.value)}
                 />
               </div>
             </div>
@@ -50,6 +58,8 @@ export const Authentication = () => {
                   width="100%"
                   padding="10px 0px"
                   borderRadius="18px"
+                  onClick={() => navigate("pixil-dashboard")}
+                  disabled={values === 0 || emails == ""}
                 />
               </div>
             </div>

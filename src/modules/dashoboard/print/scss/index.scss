@@ -18,7 +18,7 @@
       }
     }
   }
-  .nested_card {
+  .nested_card, .accor_drop {
     margin: 12px 0px;
     background-color: $mainBgColor;
     border-radius: 8px;
@@ -31,9 +31,23 @@
       padding: 2px 12px;
     }
   }
+  .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type{
+    width: 100% !important;
+  }
+}
+.accordins {
+  display: none !important;
 }
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
   color: $boxColor !important;
+}
+@media (max-width: 642px) {
+  .nested_card{
+      display: none !important;
+  }
+  .accordins {
+    display: inline-block !important;
+  }
 }
 @media (max-width: 375px) {
   .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
