@@ -8,6 +8,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
@@ -157,7 +158,7 @@ export const Hardware = () => {
             })}
           </Stepper>
         </Stack>
-        <div className="contents">
+        <div className="contents accordin-css">
           <div>
             <p>Estimated delivery date</p>
             <p>22.04.2022</p>
@@ -189,27 +190,27 @@ export const Hardware = () => {
 
       <Accordion className="accordins">
         <AccordionSummary
-          // expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          style={{outline: '1px solid white'}}
+          expandIcon={<ExpandMoreIcon />}
+
         >
-          <Typography className="text-center w-full">
-            <ExpandMoreIcon />
-          </Typography>
+          <button className="arrowButton text-center w-full">
+            {/* <ExpandMoreIcon  /> */}
+          </button>
         </AccordionSummary>
         <AccordionDetails>
           {data.map((value) => {
             return (
-              <>
-                <div className="accor_drop" key={value.id}>
-                  <div className="flex justify-between p-3 flex-wrap">
-                    <h1>{value.title}</h1>
-                    <h2>{value.quantity}</h2>
-                  </div>
-                  <p>Article number: {value.articleNumber}</p>
-                  <p>Dimensions: {value.dimesionNumber}</p>
+              <div className="accor_drop" key={value.id}>
+                <div className="flex justify-between p-3 flex-wrap">
+                  <h1>{value.title}</h1>
+                  <h2>{value.quantity}</h2>
                 </div>
-              </>
+                <p>Article number: {value.articleNumber}</p>
+                <p>Dimensions: {value.dimesionNumber}</p>
+              </div>
             );
           })}
         </AccordionDetails>

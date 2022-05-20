@@ -18,7 +18,8 @@
       }
     }
   }
-  .nested_card, .accor_drop {
+  .nested_card,
+  .accor_drop {
     margin: 12px 0px;
     background-color: $mainBgColor;
     border-radius: 8px;
@@ -31,7 +32,8 @@
       padding: 2px 12px;
     }
   }
-  .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type{
+  .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type,
+  .css-67l5gl:last-of-type {
     width: 100% !important;
   }
 }
@@ -42,13 +44,65 @@
   color: $boxColor !important;
 }
 @media (max-width: 642px) {
-  .nested_card{
-      display: none !important;
+  .nested_card {
+    display: none !important;
   }
+
+  // accordin CSS Start
   .accordins {
     display: inline-block !important;
   }
+  .contents div,
+  .css-15v22id-MuiAccordionDetails-root {
+    padding: 4px 0px !important;
+  }
+  .css-1elwnq4-MuiPaper-root-MuiAccordion-root,
+  .hardware .css-67l5gl:last-of-type {
+    border: none !important;
+    background-color: $mainBgColor !important;
+  }
+  .css-o4b71y-MuiAccordionSummary-content {
+    margin: 0px !important;
+  }
+  .css-15v22id-MuiAccordionDetails-root, .css-u7qq7e {
+    background-color: $white !important;
+
+  }
+  .css-u7qq7e{
+    padding: 8px 0px 16px !important;
+  }
+  .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+    min-height: 54px !important;
+  }
+  .css-15v22id-MuiAccordionDetails-root {
+    outline: white !important;
+    outline-width: 4px !important;
+    outline-style: solid !important;
+  }
+  .hardware .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type,
+  .hardware .css-67l5gl:last-of-type {
+    outline: white !important;
+    outline-style: solid !important;
+    outline-width: 2px !important;
+    border-radius: 8px !important;
+    // border: 2px solid white !important;
+  }
+  .css-yw020d-MuiAccordionSummary-expandIconWrapper,
+  .css-1fx8m19 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .css-i4bv87-MuiSvgIcon-root,
+  .css-vubbuv {
+    font-size: 3rem !important;
+  }
+  .accordin-css div {
+    padding: 4px 12px !important;
+  }
+  // End of CSS
 }
+
 @media (max-width: 375px) {
   .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
     font-size: 10px;

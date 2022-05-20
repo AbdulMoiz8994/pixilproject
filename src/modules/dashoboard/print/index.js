@@ -15,6 +15,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 import Check from "@mui/icons-material/Check";
 
@@ -128,7 +129,7 @@ export const Print = () => {
             ))}
           </Stepper>
         </Stack>
-        <div className="contents py-4">
+        <div className="contents py-4 accordin-css">
           <div>
             <p>Estimated delivery date</p>
             <p>22.04.2022</p>
@@ -146,42 +147,39 @@ export const Print = () => {
       {/* Nested cards */}
       {data.map((value) => {
         return (
-          <>
-            <div className="nested_card" key={value.id}>
-              <div className="flex justify-between p-3 flex-wrap">
-                <h1>{value.title}</h1>
-                <h2>{value.quantity}</h2>
-              </div>
-              <p>Article number: {value.articleNumber}</p>
-              <p>Dimensions: {value.dimesionNumber}</p>
+          <div className="nested_card" key={value.id}>
+            <div className="flex justify-between p-3 flex-wrap">
+              <h1>{value.title}</h1>
+              <h2>{value.quantity}</h2>
             </div>
-          </>
+            <p>Article number: {value.articleNumber}</p>
+            <p>Dimensions: {value.dimesionNumber}</p>
+          </div>
         );
       })}
 
       <Accordion className="accordins">
         <AccordionSummary
-          // expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          style={{ outline: "1px solid white" }}
         >
-          <Typography className="text-center w-full">
-            <ExpandMoreIcon />
-          </Typography>
+          <button className="arrowButton text-center w-full">
+            {/* <ExpandMoreIcon /> */}
+          </button>
         </AccordionSummary>
         <AccordionDetails>
           {data.map((value) => {
             return (
-              <>
-                <div className="accor_drop" key={value.id}>
-                  <div className="flex justify-between p-3 flex-wrap">
-                    <h1>{value.title}</h1>
-                    <h2>{value.quantity}</h2>
-                  </div>
-                  <p>Article number: {value.articleNumber}</p>
-                  <p>Dimensions: {value.dimesionNumber}</p>
+              <div className="accor_drop" key={value.id}>
+                <div className="flex justify-between p-3 flex-wrap">
+                  <h1>{value.title}</h1>
+                  <h2>{value.quantity}</h2>
                 </div>
-              </>
+                <p>Article number: {value.articleNumber}</p>
+                <p>Dimensions: {value.dimesionNumber}</p>
+              </div>
             );
           })}
         </AccordionDetails>

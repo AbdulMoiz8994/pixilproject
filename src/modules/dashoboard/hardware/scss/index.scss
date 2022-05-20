@@ -18,7 +18,12 @@
       :first-child {
         color: $textColor;
       }
+
     }
+    .trackNumber {
+      color: $buttonColor;
+    }
+
     .css-n7tliy-MuiStep-root,
     .css-166ciyp,
     .MuiStep-root .MuiStep-horizontal .MuiStep-alternativeLabel {
@@ -26,7 +31,10 @@
       padding-right: 0px !important;
     }
   }
+ 
 }
+
+
 
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed,
 .css-4ff9q7.Mui-completed {
@@ -36,7 +44,8 @@
   color: #d32f2f !important;
 }
 @media (max-width: 1024px) {
-  .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+  .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel,
+  .css-farnub.MuiStepLabel-alternativeLabel {
     font-size: 12px !important;
   }
 }
