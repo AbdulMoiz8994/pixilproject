@@ -12,6 +12,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -26,27 +31,40 @@ const style = {
 };
 
 export const Dashboard = () => {
-  const [checked, setChecked] = useState(false);
-  const [checkedTwo, setCheckedTwo] = useState(false);
-  const [checkedThree, setCheckedThree] = useState(false);
-  const [checkedFour, setCheckedFour] = useState(false);
+  const [printvalue, setPrintValue] = useState("");
+  const [hardwarevalue, setHardwareValue] = useState("");
+
+  // const [checked, setChecked] = useState(false);
+  // const [checkedTwo, setCheckedTwo] = useState(false);
+  // const [checkedThree, setCheckedThree] = useState(false);
+  // const [checkedFour, setCheckedFour] = useState(false);
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
+  // const handleChange = (event) => {
+  //   setChecked(event.target.checked);
+  // };
+  // const handleChangeTwo = (event) => {
+  //   setCheckedTwo(event.target.checked);
+  // };
+  // const handleChangeThree = (event) => {
+  //   setCheckedThree(event.target.checked);
+  // };
+  // const handleChangeFour = (event) => {
+  //   setCheckedFour(event.target.checked);
+  // };
+
+  //  Radio
+  const handleChangeValue = (event) => {
+    setPrintValue(event.target.value);
   };
-  const handleChangeTwo = (event) => {
-    setCheckedTwo(event.target.checked);
+  const handleChangeValueHard = (event) => {
+    setHardwareValue(event.target.value);
   };
-  const handleChangeThree = (event) => {
-    setCheckedThree(event.target.checked);
-  };
-  const handleChangeFour = (event) => {
-    setCheckedFour(event.target.checked);
-  };
+  console.log(hardwarevalue);
+  console.log(printvalue);
   return (
     <div className="h-screen overflow-auto">
       <Header />
@@ -109,46 +127,60 @@ export const Dashboard = () => {
             <div className="pl-6 pt-5">
               <h1>Versandat</h1>
               <h3 className="text-lg pl-1 pt-3">Hardware</h3>
-              <div className="flex justify-start items-center -ml-2">
-                <Checkbox
-                  checked={checked}
-                  onChange={handleChange}
-                  inputProps={{ "aria-label": "controlled" }}
-                />
-                <p>Standered Shipping</p>
-              </div>
-              <div className="flex justify-start items-center -ml-2">
-                <Checkbox
-                  checked={checkedTwo}
-                  onChange={handleChangeTwo}
-                  inputProps={{ "aria-label": "controlled" }}
-                />
-                <p>Express Shipping (+100$)</p>
-              </div>
+
+              <FormControl>
+                <RadioGroup
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  name="controlled-radio-buttons-group"
+                  value={hardwarevalue}
+                  onChange={handleChangeValueHard}
+                >
+                  <div className="flex  items-center ">
+                    <FormControlLabel
+                      value="standeredShippinghardware"
+                      control={<Radio />}
+                    />
+                    <p>Standered Shipping</p>
+                  </div>
+                  <div className="flex  items-center ">
+                    <FormControlLabel
+                      value="expressshippinghardware"
+                      control={<Radio />}
+                    />
+                    <p>Express Shipping (+100$)</p>
+                  </div>
+                </RadioGroup>
+              </FormControl>
             </div>
 
             {/* print */}
 
             <div className="pl-6 pt-3">
               <h3 className="text-lg pl-1">Print</h3>
-              <div className="flex justify-start items-center -ml-2">
-                <Checkbox
-                  checked={checkedThree}
-                  onChange={handleChangeThree}
-                  inputProps={{ "aria-label": "controlled" }}
-                  color="success"
-                />
-                <p>Standered Shipping</p>
-              </div>
-              <div className="flex justify-start items-center -ml-2">
-                <Checkbox
-                  checked={checkedFour}
-                  onChange={handleChangeFour}
-                  inputProps={{ "aria-label": "controlled" }}
-                  color="success"
-                />
-                <p>Express Shipping (+100$)</p>
-              </div>
+
+              <FormControl>
+                <RadioGroup
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  name="controlled-radio-buttons-group"
+                  value={printvalue}
+                  onChange={handleChangeValue}
+                >
+                  <div className="flex  items-center ">
+                    <FormControlLabel
+                      value="standeredShippingprint"
+                      control={<Radio />}
+                    />
+                    <p>Standered Shipping</p>
+                  </div>
+                  <div className="flex  items-center ">
+                    <FormControlLabel
+                      value="expressshippingprint"
+                      control={<Radio />}
+                    />
+                    <p>Express Shipping (+100$)</p>
+                  </div>
+                </RadioGroup>
+              </FormControl>
             </div>
             <div className="p-6">
               <Btn
