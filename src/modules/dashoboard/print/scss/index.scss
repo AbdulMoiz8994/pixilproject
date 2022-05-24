@@ -8,16 +8,38 @@
   }
   .steppers {
     margin: 12px 0px;
+    margin-bottom: 28px;
     background-color: $mainBgColor;
     border-radius: 8px;
-    padding: 16px 0px;
+    padding: 16px 0px !important;
     .contents div {
-      padding: 8px 16px;
+      padding: 8px 16px !important;
       :first-child {
         color: $textColor;
       }
     }
   }
+  .warningClass {
+    .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-error,
+    .css-qivjh0-MuiStepLabel-label.Mui-error,
+    .warn-msg,
+    .css-farnub.Mui-error {
+      color: #d7d934 !important;
+    }
+  }
+  .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active,
+  .css-4ff9q7.Mui-active {
+    color: #d7d934 !important;
+  }
+  .failedClass {
+    .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-error,
+    .css-4ff9q7.Mui-error {
+      color: #d32f2f !important;
+    }
+  }
+  // .css-117w1su-MuiStepIcon-text{
+  //   display: none;
+  // }
   .nested_card,
   .accor_drop {
     margin: 12px 0px;
@@ -32,6 +54,27 @@
       padding: 2px 12px;
     }
   }
+  .accor_drop {
+    display: none;
+  }
+  .acc-active {
+    display: block;
+    margin: 12px 0px;
+    background-color: $mainBgColor;
+    border-radius: 8px;
+    padding: 16px 0px;
+    h1 {
+      font-weight: $fontWeightForText;
+    }
+    p {
+      color: $textColor;
+      padding: 2px 12px;
+    }
+  }
+  .buttondrop{
+    background-color: $mainBgColor !important;
+    margin-top: -8px;
+  }
   .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type,
   .css-67l5gl:last-of-type {
     width: 100% !important;
@@ -42,6 +85,10 @@
 }
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
   color: $boxColor !important;
+}
+.description {
+  color: $textColor;
+  margin-bottom: 18px !important;
 }
 @media (max-width: 642px) {
   .nested_card {
@@ -55,6 +102,7 @@
   .contents div,
   .css-15v22id-MuiAccordionDetails-root {
     padding: 4px 0px !important;
+    margin-top: -14px;
   }
   .css-1elwnq4-MuiPaper-root-MuiAccordion-root,
   .hardware .css-67l5gl:last-of-type {
@@ -64,11 +112,11 @@
   .css-o4b71y-MuiAccordionSummary-content {
     margin: 0px !important;
   }
-  .css-15v22id-MuiAccordionDetails-root, .css-u7qq7e {
+  .css-15v22id-MuiAccordionDetails-root,
+  .css-u7qq7e {
     background-color: $white !important;
-
   }
-  .css-u7qq7e{
+  .css-u7qq7e {
     padding: 8px 0px 16px !important;
   }
   .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {

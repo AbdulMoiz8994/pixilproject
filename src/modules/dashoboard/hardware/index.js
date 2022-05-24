@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useRef } from "react";
 import "./scss/index.scss";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
+// import Stepper from "@mui/material/Stepper";
+// import Step from "@mui/material/Step";
+import { CreateContext } from "../../../context/createContext";
 import StepLabel from "@mui/material/StepLabel";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
@@ -92,9 +95,7 @@ QontoStepIcon.propTypes = {
 };
 
 const steps = ["order recieved", "In production", "In delivery", "Delivered"];
-// export default function HorizontalStepperWithError() {
 
-// }
 const initialData = [
   {
     id: 1,
@@ -120,56 +121,81 @@ const initialData = [
 ];
 
 export const Hardware = () => {
+  const { value } = useContext(CreateContext);
+  console.log(value);
+
   const [data, setData] = useState(initialData);
-  const isStepFailed = (step) => {
-    return step === 1;
+  const [check, setCheck] = useState(false);
+
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [completed, setCompleted] = React.useState({});
+
+  const refDat = useRef(null);
+
+  const totalSteps = () => {
+    return steps.length;
   };
+
+  const completedSteps = () => {
+    return Object.keys(completed).length;
+  };
+
+  const isLastStep = () => {
+    return activeStep === totalSteps();
+  };
+
+  const allStepsCompleted = () => {
+    return completedSteps() === totalSteps();
+  };
+
+  const handleNext = () => {
+    const newActiveStep =
+      isLastStep() && !allStepsCompleted()
+        ? steps.findIndex((step, i) => !(i in completed))
+        : activeStep + 1;
+    setActiveStep(newActiveStep);
+  };
+
+  const handleStep = (step) => (e) => {
+    // console.log(e.target.innerHTML);
+    if (e.target.innerHTML == 4 && activeStep >= 3) {
+      setActiveStep(step++);
+    }
+    setActiveStep(step);
+  };
+
   return (
-    <div className="hardware px-6 py-8">
+    <div className="hardware px-2 py-8">
       <h1>Hardware</h1>
       <div className="steppers">
         <Stack sx={{ width: "100%" }} spacing={4}>
           <Stepper
-            activeStep={1}
             alternativeLabel
             connector={<QontoConnector />}
+            activeStep={activeStep}
           >
-            {/* {steps.map((label) => ( */}
-            {steps.map((label, index) => {
-              const labelProps = {};
-              if (isStepFailed(index)) {
-                labelProps.optional = (
-                  <Typography
-                    style={{ display: "flex", justifyContent: "center" }}
-                    variant="caption"
-                    color="error"
-                  >
-                    Failed
-                  </Typography>
-                );
-
-                labelProps.error = true;
-              }
-              return (
-                <Step key={label}>
-                  <StepLabel {...labelProps}>{label}</StepLabel>
-                </Step>
-              );
-            })}
+            {steps.map((label, index) => (
+              <Step key={label} completed={completed[index]}>
+                <StepLabel onClick={handleStep(index)}>{label}</StepLabel>
+              </Step>
+            ))}
           </Stepper>
         </Stack>
+
         <div className="contents accordin-css">
           <div>
             <p>Estimated delivery date</p>
-            <p>22.04.2022</p>
+            <p>{value == "de" ? "22.05.2022" : "22.05.2023"}</p>
           </div>
           <div>
             <p>Shipment</p>
-            <p>UPS</p>
+            <p>{value == "de" ? "ups" : "UPS"}</p>
           </div>
           <div>
             <p>Tracking number</p>
-            <p className="trackNumber">D020f0d002</p>
+            <p className="trackNumber">
+              {value == "de" ? "D020f02344" : "D020f0d002"}
+            </p>
           </div>
         </div>
       </div>
@@ -188,16 +214,14 @@ export const Hardware = () => {
         );
       })}
 
-      <Accordion className="accordins">
+      {/* <Accordion className="accordins">
         <AccordionSummary
           aria-controls="panel1a-content"
           id="panel1a-header"
-          style={{outline: '1px solid white'}}
+          style={{ outline: "1px solid white" }}
           expandIcon={<ExpandMoreIcon />}
-
         >
           <button className="arrowButton text-center w-full">
-            {/* <ExpandMoreIcon  /> */}
           </button>
         </AccordionSummary>
         <AccordionDetails>
@@ -213,6 +237,39 @@ export const Hardware = () => {
               </div>
             );
           })}
+        </AccordionDetails>
+      </Accordion> */}
+
+      <Accordion className="accordins">
+        <AccordionDetails>
+          {data.map((value) => {
+            return (
+              <div
+                className={`${check == false ? "accor_drop" : "acc-active"}`}
+                key={value.id}
+              >
+                <div className={`flex justify-between p-3 flex-wrap`}>
+                  <h1>{value.title}</h1>
+                  <h2>{value.quantity}</h2>
+                </div>
+                <p>Article number: {value.articleNumber}</p>
+                <p>Dimensions: {value.dimesionNumber}</p>
+              </div>
+            );
+          })}
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+            onClick={() => setCheck(!check)}
+            style={{ outline: "1px solid white" }}
+            className="buttondrop"
+          >
+            <button
+              className="arrowButton text-center w-full"
+              onClick={() => setCheck(!check)}
+            ></button>
+          </AccordionSummary>
         </AccordionDetails>
       </Accordion>
     </div>

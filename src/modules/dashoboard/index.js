@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { Btn, Header } from "../../component/index";
 import { Hardware } from "./hardware";
 import { Print } from "./print";
 import "./scss/index.scss";
-import Checkbox from "@mui/material/Checkbox";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -33,28 +33,11 @@ const style = {
 export const Dashboard = () => {
   const [printvalue, setPrintValue] = useState("");
   const [hardwarevalue, setHardwareValue] = useState("");
-
-  // const [checked, setChecked] = useState(false);
-  // const [checkedTwo, setCheckedTwo] = useState(false);
-  // const [checkedThree, setCheckedThree] = useState(false);
-  // const [checkedFour, setCheckedFour] = useState(false);
-
+  let { id } = useParams();
+  // MODAL
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  // const handleChange = (event) => {
-  //   setChecked(event.target.checked);
-  // };
-  // const handleChangeTwo = (event) => {
-  //   setCheckedTwo(event.target.checked);
-  // };
-  // const handleChangeThree = (event) => {
-  //   setCheckedThree(event.target.checked);
-  // };
-  // const handleChangeFour = (event) => {
-  //   setCheckedFour(event.target.checked);
-  // };
 
   //  Radio
   const handleChangeValue = (event) => {
@@ -71,7 +54,7 @@ export const Dashboard = () => {
       <div className="mx-auto w-4/5 mt-7 dashboard">
         <div className="ordernumber flex justify-end items-center">
           <span>Order</span>
-          <h1>201020</h1>
+          <h1>{id && id}</h1>
         </div>
         {/* three cards */}
         <div className="Main_card">

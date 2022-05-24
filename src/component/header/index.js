@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { CreateContext } from "../../context/createContext";
 import PixilLogo from "../../assests/images/pixlip_logo.svg";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 export const Header = () => {
+  const { value, onChangeFunc } = useContext(CreateContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  // const [value, setValue] = useState("");
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleClick = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
   const handleClose = () => {
     setAnchorEl(null);
   };
+  console.log(value);
   return (
     <div className="w-full bg-white">
       <div className="flex justify-between items-center m-auto w-4/5 h-12">
@@ -21,28 +21,21 @@ export const Header = () => {
           <img src={PixilLogo} width="100px" height={"100px"} alt="pixilp" />
         </div>
         <div>
-          <Button
-            id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-            onClick={handleClick}
-            style={{ color: "black" }}
-          >
-            DE <KeyboardArrowDownIcon />
-          </Button>
-          <Menu
+          <select
             id="basic-menu"
-            anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            MenuListProps={{
-              "aria-labelledby": "basic-button",
-            }}
+            className="selection bg-white outline-none border-0 w-11"
+            value={value}
+            onChange={onChangeFunc}
           >
-            <MenuItem onClick={handleClose}>EN</MenuItem>
-            <MenuItem onClick={handleClose}>DE</MenuItem>
-          </Menu>
+            <option onClick={handleClose} value="eng">
+              EN
+            </option>
+            <option onClick={handleClose} value="de">
+              DE
+            </option>
+          </select>
         </div>
       </div>
     </div>

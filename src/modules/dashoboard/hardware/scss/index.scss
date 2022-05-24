@@ -12,9 +12,10 @@
     margin: 12px 0px;
     background-color: $mainBgColor;
     border-radius: 8px;
-    padding: 16px 0px;
+    padding: 16px 0px !important;
     .contents div {
       padding: 4px 16px;
+      margin: 8px 0px !important;
       :first-child {
         color: $textColor;
       }
@@ -22,6 +23,8 @@
     }
     .trackNumber {
       color: $buttonColor;
+      text-decoration: underline;
+      cursor: pointer;
     }
 
     .css-n7tliy-MuiStep-root,

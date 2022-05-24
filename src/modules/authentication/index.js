@@ -8,6 +8,10 @@ export const Authentication = () => {
   const [values, setValues] = useState();
   const [emails, setEmails] = useState("");
 
+  const handleClick = () => {
+    // console.log(id);
+    navigate(`/pixil/${values}`);
+  };
   return (
     <div>
       <Header />
@@ -29,7 +33,7 @@ export const Authentication = () => {
                   padding="8px 12px"
                   borderRadius="18px"
                   value={values}
-                  onChange={(e) => setValues(e.type.value)}
+                  onChange={(e) => setValues(e.target.value)}
                 />
               </div>
             </div>
@@ -44,7 +48,7 @@ export const Authentication = () => {
                   padding="8px 12px"
                   borderRadius="18px"
                   value={emails}
-                  onChange={(e) => setEmails(e.type.value)}
+                  onChange={(e) => setEmails(e.target.value)}
                 />
               </div>
             </div>
@@ -58,7 +62,7 @@ export const Authentication = () => {
                   width="100%"
                   padding="10px 0px"
                   borderRadius="18px"
-                  onClick={() => navigate("pixil-dashboard")}
+                  onClick={handleClick}
                   disabled={values === 0 || emails == ""}
                 />
               </div>
